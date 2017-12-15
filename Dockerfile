@@ -69,7 +69,6 @@ RUN wget https://github.com/iracooke/AlignStatShiny/archive/v1.3.0.zip && \
 EXPOSE 3838
 
 # The above is already set up in the base image, centos-with-ssh:latest
-COPY shiny-server.conf /etc/shiny-server/
 
 RUN ssh-keygen -t rsa -f /root/.ssh/ssh_host_rsa_key -N ''
 
@@ -79,7 +78,5 @@ RUN echo 'ssh-dss AAAAB3NzaC1kc3MAAACBAKfgP78og/FVtwsTrXuQJwHbjmGmVIcOZjTQRDaMw0
 RUN echo 'ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAo1Q2ivQLdNk6+oVKIFN+letOXjlSWZuO71LZnGoLy89yfKSLqMElVoueHvZKNYTRalB2T9gzFn0ZZobjTgf7DtTTsr+OtSnlys6zfwUTiUjud294H0D9AJoYG+wrAZfMs4DUBj6HX0dXb2biqLvoxRy3qiWhAr56zkM2V92JT3DkIfQeFqTWnjeGRCZxu+8hcpnQZPYnGI+Mb77QzT/9vufZKDBW2FaAwvVC1mWCAmqPccy7Y2jgPzdpmnxvf7oC0SwvZPVSgvLNA/VTsrwbJ1FbDTEWOYk3nBcuziGjc+rBYpZnKSgpxYJi2NCkHEdqbE5DTBqnC8TBVt/riATY8w== Credentialled nessus scan key' >> /root/.ssh/authorized_keys
 RUN echo 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC6j4jnEML5nIQmP9Lnw5mFwQSDsB92O2yOt3XWZm7rltejUwypWnf2tVcFpLNnP++zx/nybdUyPiIxfGfSwsIlCyDfesOCol6mVyqk6i3LoH9nLuisPNZdHrkFAITE5ywFf7B6Uzd6xahGcPmgHIhRFmJEm/+YzrwmJngaGwTWQZVb/mfIXO49iKFUp4wtKZUwUyuZX99tY+XQ7YFJCOioD3Vas1FTlOao8Yg5Ka5T9zJmD22KFOoIl4W4+GebBLdze4RN0RZ1pOJ7aS5Mc9+erw9klkvWFipzg3I5mgEMyzKU385cjic70sFWV7K0SE2o0cFaCw7ETWE/zBaJjREt root@resdock.latrobe.edu.au' >> /root/.ssh/authorized_keys
 
-RUN echo "[program:shiny]" >> /etc/supervisord.conf && \
-    echo "command=/usr/bin/bash -c '/usr/bin/shiny-server'" >> /etc/supervisord.conf
 
 CMD ["/usr/bin/supervisord"]
