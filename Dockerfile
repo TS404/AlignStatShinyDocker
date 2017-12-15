@@ -74,9 +74,7 @@ EXPOSE 3838
 # please touch / create '/etc/supervisord.conf'
 RUN echo "[supervisord]" > /etc/supervisord.conf && \
     echo "nodaemon=true" >> /etc/supervisord.conf && \
-    echo "" >> /etc/supervisord.conf && \
-    echo "[program:sshd]" >> /etc/supervisord.conf && \
-    echo "command=/usr/sbin/sshd -D " >> /etc/supervisord.conf
+    echo "" >> /etc/supervisord.conf >> /etc/supervisord.conf
 
 # The above is already set up in the base image, centos-with-ssh:latest
 COPY shiny-server.conf /etc/shiny-server/
