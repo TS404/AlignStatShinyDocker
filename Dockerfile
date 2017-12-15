@@ -31,6 +31,7 @@ RUN yum install -y cmake \
 					hostname \
 					openssh-server \
 					supervisor \
+					httpd \
                     wget \
                     openssl-devel libcurl-devel
 
