@@ -57,12 +57,12 @@ RUN R -e "install.packages(c('rmarkdown'), repos='https://cran.rstudio.com/')"
 
 RUN R -e "install.packages(c('devtools'), repos='https://cran.rstudio.com/')"
 
-RUN R -e 'devtools::install_github("iracooke/AlignStat")'
+RUN R -e 'devtools::install_github("ts404/AlignStat")'
 
-RUN wget https://github.com/iracooke/AlignStatShiny/archive/v1.3.0.zip && \
-    unzip v1.3.0.zip && \
+RUN wget https://github.com/ts404/AlignStatShiny/archive/v0.1.0.zip && \
+    unzip v0.1.0.zip && \
     mkdir -p /srv/shiny-server/alignstat && \
-    cp AlignStatShiny-1.3.0/*.R /srv/shiny-server/alignstat/
+    cp AlignStatShiny-0.1.0/*.R /srv/shiny-server/alignstat/
 
 # This is the port that the docker container expects to recieve communications on.
 # 
