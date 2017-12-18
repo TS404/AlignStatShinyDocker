@@ -59,10 +59,10 @@ RUN R -e "install.packages(c('devtools'), repos='https://cran.rstudio.com/')"
 
 RUN R -e 'devtools::install_github("ts404/AlignStat")'
 
-RUN wget https://github.com/ts404/AlignStatShiny/archive/v0.1.0.zip && \
-    unzip v0.1.0.zip && \
+RUN wget https://github.com/ts404/AlignStatShiny/archive/v0.1.1.zip && \
+    unzip v0.1.1.zip && \
     mkdir -p /srv/shiny-server/alignstat && \
-    cp AlignStatShiny-0.1.0/*.R /srv/shiny-server/alignstat/
+    cp AlignStatShiny-0.1.1/*.R /srv/shiny-server/alignstat/
 
 # This is the port that the docker container expects to recieve communications on.
 # 
